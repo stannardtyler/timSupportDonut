@@ -47,7 +47,7 @@ document.addEventListener("click", () => {
 
 // Movement variables
 const moveSpeed = 0.1;
-const keys = { w: false, a: false, s: false, d: false };
+const keys = { w: false, d: false, s: false, a: false };
 
 document.addEventListener("keydown", (event) => {
   if (event.key in keys) keys[event.key] = true;
@@ -70,8 +70,8 @@ function handleMovement() {
 
   if (keys.w) direction.add(forward);
   if (keys.s) direction.sub(forward);
-  if (keys.a) direction.sub(right);
-  if (keys.d) direction.add(right);
+  if (keys.d) direction.sub(right);
+  if (keys.a) direction.add(right);
 
   direction.normalize();
   camera.position.addScaledVector(direction, moveSpeed);
